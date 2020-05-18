@@ -1,0 +1,43 @@
+
+
+# TODO: add GUID as variable 
+
+
+
+
+- name: lb
+  hosts: frontends
+  become: yes
+  gather_facts: false # remove later! speeds up testing
+  roles:
+  - name: repo
+  - name: lb
+
+
+- name: app
+  hosts: apps
+  become: yes
+  gather_facts: false # remove later! speeds up testing
+  roles:
+  - name: repo
+  - name: app
+
+
+# TODO: db init check routine
+- name: db
+  hosts: appdbs
+  become: yes
+  gather_facts: false # remove later! speeds up testing
+  roles:
+  - name: repo
+  - name: db
+
+
+
+
+
+
+
+
+
+
